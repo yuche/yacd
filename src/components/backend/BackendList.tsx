@@ -46,6 +46,7 @@ export function BackendList() {
       let res: Response;
       try {
         res = await req(url, init);
+        debugger
       } catch (err) {
         console.log(err);
         toast.error('Failed to connect');
@@ -59,11 +60,13 @@ export function BackendList() {
         toast.error('Unexpected response');
         return;
       }
-      if (typeof data['hello'] !== 'string') {
-        console.log('Response:', data);
-        toast.error('Unexpected response');
-        return;
-      }
+      // debugger
+      console.log(data)
+      // if (typeof data['hello'] !== 'string') {
+      //   console.log('Response:', data);
+      //   toast.error('Unexpected response');
+      //   return;
+      // }
       if (currIdx === idx) {
         navigate('/', { replace: true });
       } else {
